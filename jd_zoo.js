@@ -9,22 +9,22 @@ PK互助：内部账号自行互助(排名靠前账号得到的机会多),多余
 地图任务：已添加，下午2点到5点执行,抽奖已添加(基本都是优惠券)
 金融APP任务：已完成
 活动时间：2021-05-24至2021-06-20
-脚本更新时间：2021-06-05 18:30
+脚本更新时间：2021-06-03 9:30
 脚本兼容: QuantumultX, Surge, Loon, JSBox, Node.js
 ===================quantumultx================
 [task_local]
 #618动物联萌
-33 0,6-23/2 * * * https://jdsharedresourcescdn.azureedge.net/jdresource/jd_zoo.js, tag=618动物联萌, img-url=https://raw.githubusercontent.com/Orz-3/mini/master/Color/jd.png, enabled=true
+33 0,6-23/2 * * * https://gitee.com/lxk0301/jd_scripts/raw/master/jd_zoo.js, tag=618动物联萌, img-url=https://raw.githubusercontent.com/Orz-3/mini/master/Color/jd.png, enabled=true
 
 =====================Loon================
 [Script]
-cron "33 0,6-23/2 * * *" script-path=https://jdsharedresourcescdn.azureedge.net/jdresource/jd_zoo.js, tag=618动物联萌
+cron "33 0,6-23/2 * * *" script-path=https://gitee.com/lxk0301/jd_scripts/raw/master/jd_zoo.js, tag=618动物联萌
 
 ====================Surge================
-618动物联萌 = type=cron,cronexp="33 0,6-23/2 * * *",wake-system=1,timeout=3600,script-path=https://jdsharedresourcescdn.azureedge.net/jdresource/jd_zoo.js
+618动物联萌 = type=cron,cronexp="33 0,6-23/2 * * *",wake-system=1,timeout=3600,script-path=https://gitee.com/lxk0301/jd_scripts/raw/master/jd_zoo.js
 
 ============小火箭=========
-618动物联萌 = type=cron,script-path=https://jdsharedresourcescdn.azureedge.net/jdresource/jd_zoo.js, cronexpr="33 0,6-23/2 * * *", timeout=3600, enable=true
+618动物联萌 = type=cron,script-path=https://gitee.com/lxk0301/jd_scripts/raw/master/jd_zoo.js, cronexpr="33 0,6-23/2 * * *", timeout=3600, enable=true
  */
 const $ = new Env('618动物联萌');
 const notify = $.isNode() ? require('./sendNotify') : '';
@@ -35,10 +35,10 @@ const pKHelpAuthorFlag = true;//是否助力作者PK  true 助力，false 不助
 let cookiesArr = [];
 $.cookie = '';
 $.inviteList = [];
-$.pkInviteList = [];
+$.pkInviteList = [
+];
 $.secretpInfo = {};
 $.innerPkInviteList = [
-  'sSKNX-MpqKOJsNv4wOW-fJe6QL6cfGhXqDs78P366_UzIYRQAIrA9g1BqgA7Ow',
 ];
 if ($.isNode()) {
   Object.keys(jdCookieNode).forEach((item) => {
@@ -63,7 +63,7 @@ if ($.isNode()) {
       '地图任务：已添加，下午2点到5点执行,抽奖已添加\n' +
       '金融APP任务：已完成\n' +
       '活动时间：2021-05-24至2021-06-20\n' +
-      '脚本更新时间：2021-06-05 18:30\n'
+      '脚本更新时间：2021-06-03 9:30\n'
       );
   for (let i = 0; i < cookiesArr.length; i++) {
     if (cookiesArr[i]) {
@@ -88,11 +88,11 @@ if ($.isNode()) {
     }
   }
   let res = [], res2 = [], res3 = [];
-  res3 = await getAuthorShareCode('https://raw.githubusercontent.com/ElsaKing/updateTeam/main/shareCodes/jd_zoo.json');
-  if (!res3) await getAuthorShareCode('https://ghproxy.com/https://raw.githubusercontent.com/ElsaKing/updateTeam/main/shareCodes/jd_zoo.json')
+  res3 = await getAuthorShareCode('https://raw.githubusercontent.com/inoyna11/Write-files/master/shareCodes/jd_zoo.json');
+  if (!res3) await getAuthorShareCode('https://raw.githubusercontent.com/inoyna11/Write-files/master/shareCodes/jd_zoo.json')
   if (new Date().getHours()>= 9) {
     res = await getAuthorShareCode() || [];
-    res2 = await getAuthorShareCode('https://ghproxy.com/https://raw.githubusercontent.com/ElsaKing/updateTeam/main/shareCodes/jd_zoo.json') || [];
+    res2 = await getAuthorShareCode('https://raw.githubusercontent.com/1277002811/JDbot/master/shareCodes/pk.json') || [];
   }
   if (pKHelpAuthorFlag) {
     $.innerPkInviteList = getRandomArrayElements([...$.innerPkInviteList, ...res, ...res2, ...res3], [...$.innerPkInviteList, ...res, ...res2, ...res3].length);
@@ -109,7 +109,7 @@ if ($.isNode()) {
     $.index = i + 1;
     //console.log($.inviteList);
     //pk助力
-    if (new Date().getHours() >= 9) {
+    if (new Date().getUTCHours() + 8 >= 9) {
       console.log(`\n******开始内部京东账号【怪兽大作战pk】助力*********\n`);
       for (let i = 0; i < $.pkInviteList.length && pKHelpFlag && $.canHelp; i++) {
         console.log(`${$.UserName} 去助力PK码 ${$.pkInviteList[i]}`);
@@ -207,7 +207,7 @@ async function zoo() {
             await $.wait(3000);
           }
         }
-      } else if ($.oneTask.taskType === 2 && $.oneTask.status === 1 && $.oneTask.scoreRuleVos[0].scoreRuleType === 2){
+      }else if ($.oneTask.taskType === 2 && $.oneTask.status === 1){
         console.log(`做任务：${$.oneTask.taskName};等待完成 (实际不会添加到购物车)`);
         $.taskId = $.oneTask.taskId;
         $.feedDetailInfo = {};
@@ -223,25 +223,6 @@ async function zoo() {
           await takePostRequest('add_car');
           await $.wait(1500);
           needTime --;
-        }
-      }else if ($.oneTask.taskType === 2 && $.oneTask.status === 1 && $.oneTask.scoreRuleVos[0].scoreRuleType === 0){
-        $.activityInfoList = $.oneTask.productInfoVos ;
-        for (let j = 0; j < $.activityInfoList.length; j++) {
-          $.oneActivityInfo = $.activityInfoList[j];
-          if ($.oneActivityInfo.status !== 1 || !$.oneActivityInfo.taskToken) {
-            continue;
-          }
-          $.callbackInfo = {};
-          console.log(`做任务：浏览${$.oneActivityInfo.skuName};等待完成`);
-          await takePostRequest('zoo_collectScore');
-          if ($.oneTask.taskType === 2) {
-            await $.wait(2000);
-            console.log(`任务完成`);
-          } else {
-            console.log($.callbackInfo);
-            console.log(`任务失败`);
-            await $.wait(3000);
-          }
         }
       }
     }
@@ -871,7 +852,7 @@ function getRandomArrayElements(arr, count) {
   }
   return shuffled.slice(min);
 }
-function getAuthorShareCode(url = "https://ghproxy.com/https://raw.githubusercontent.com/ElsaKing/updateTeam/main/shareCodes/jd_zoo.json") {
+function getAuthorShareCode(url = "https://raw.githubusercontent.com/inoyna11/Write-files/master/shareCodes/jd_zoo.json") {
   return new Promise(async resolve => {
     const options = {
       "url": `${url}?${new Date()}`,
