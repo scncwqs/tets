@@ -1,0 +1,70 @@
+
+<!-- saved from url=(0036)https://tuapi.eees.cc/acgPicPPTShow/ -->
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8"><style>
+			html,
+			body {
+				font-size: 20px;
+				margin: 0;
+				width: 100%;
+				height: 100%;
+				display: flex;
+				justify-content: center;
+				align-items: center;
+			}
+			
+			.bg {
+				width: 100%;
+				height: 100%;
+				position: fixed;
+				z-index: -1;
+				background-position: center;
+				background-repeat: no-repeat;
+				background-attachment: fixed;
+				background-size: cover;
+				animation: bg 10s infinite;
+			}
+			
+			#bg1 {
+				background-image: url("https://tuapi.eees.cc/acgppt.php");
+			}
+			
+			#bg2 {
+				animation-delay: 5s;
+			}
+			
+			@keyframes bg{
+				0%{transform: scale(1.5, 1.5);opacity: 0;}
+				20%{opacity: 1;}
+				30%{transform: scale(1, 1);}
+				50%{opacity: 1;}
+				70%{opacity: 0;}
+				100%{opacity: 0;}
+			}
+			
+</style>
+
+<script src="chrome-extension://nngceckbapebfimnlniiiahkandclblb/content/fido2/page-script.js" id="bw-fido2-page-script"></script><style id="panai-style">
+                .panai-container { z-index: 99999!important }
+                .panai-popup { font-size: 14px !important }
+                .panai-setting-label { display: flex;align-items: center;justify-content: space-between;padding-top: 20px; }
+                .panai-setting-checkbox { width: 16px;height: 16px; }
+            </style></head><body><div id="bg2" class="bg" style="background-image: url(&quot;https://tuapi.eees.cc/acgppt.php/?12&quot;);"></div>
+<div id="bg1" class="bg" style="background-image: url(&quot;https://tuapi.eees.cc/acgppt.php/?13&quot;);"></div>
+
+<script type="text/javascript">
+			countImg = 1;
+			countTime = 0;
+			bg1Container = document.getElementById("bg1");
+			bg2Container = document.getElementById("bg2");
+			
+			setInterval(function(){
+				countTime += 1;
+				if(countTime % 10 == 7){
+					countImg += 1;
+					bg1Container.style = `background-image: url(https://tuapi.eees.cc/acgppt.php/?${countImg})`;
+				}else if((countTime + 5) % 10 == 7){
+					countImg += 1;
+					bg2Container.style = `background-image: url(https://tuapi.eees.cc/acgppt.php/?${countImg})`;
+				}
+			}, 1000);
+</script></body></html>

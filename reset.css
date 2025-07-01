@@ -1,0 +1,281 @@
+/*清除内外边距*/
+h1, h2, h3, h4, h5, h6 {
+    font-weight: normal;
+}
+/*设置默认字体*/
+:focus {
+    outline: 0;
+}
+
+ul, ol {
+    list-style: none;
+}
+/*重置图片元素*/
+address, caption, cite, code, dfn, em, i, th, var, optgroup {
+    font-style: normal;
+    font-weight: normal;
+}
+
+abbr, acronym {
+    border: 0;
+    font-variant: normal;
+}
+
+input, button, textarea, select, optgroup, option {
+    font-family: inherit;
+    font-size: inherit;
+    font-style: inherit;
+    font-weight: inherit;
+}
+
+code, kbd, samp, tt {
+    font-size: 100%;
+}
+/*@purpose To enable resizing for IE */
+/*@branch For IE6-Win, IE7-Win */
+input, button, textarea, select {
+    *font-size: 100%;
+    outline: none;
+}
+/*
+form label {
+    cursor: pointer;
+}
+*/
+
+textarea {
+    resize: none;
+}
+
+table.tftable {font-size:12px;color:#333333;width:100%;border-width: 1px;border-color: #729ea5;border-collapse: collapse;}
+table.tftable th {font-size:12px;background-color:#acc8cc;border-width: 1px;padding: 8px;border-style: solid;border-color: #729ea5;text-align:left;}
+table.tftable tr {background-color:#ffffff26;}
+table.tftable td {font-size:12px;border-width: 1px;padding: 8px;border-style: solid;border-color: #729ea5;}
+
+/*重置表格*/
+blockquote, q {
+    quotes: none;
+}
+
+blockquote:before, blockquote:after, q:before, q:after {
+    content: '';
+    content: none;
+}
+
+.fl {
+    float: left;
+}
+
+.fr {
+    float: right;
+}
+
+a:hover {
+    text-decoration: none;
+}
+
+a.special, .special a {
+    color: #1eb37b;
+}
+
+a.special:hover, .special a:hover {
+    color: #1eb37b;
+    text-decoration: none;
+}
+/*--清除浮动
+-------------------------------------------*/
+.cf:before, .cf:after, .clearfix:before, .clearfix:after {
+    content: "";
+    display: table;
+}
+
+.cf:after, .clearfix:after {
+    clear: both;
+}
+
+.cf, .clearfix {
+    clear: both;
+    *zoom: 1;
+}
+/*-- 字号、颜色、外边距、内补丁、居中、行高、显示、隐藏
+--------------------------------------------------------------------------*/
+.c-333 {
+    color: #333;
+}
+
+.c-666 {
+    color: #666;
+}
+
+.c-999 {
+    color: #999;
+}
+
+.c-green {
+    color: #1fb079;
+}
+
+.c-orange {
+    color: #fc714c;
+}
+
+.c-reg {
+    color: #d90106;
+}
+/* 字号 */
+.f9 {
+    font-size: 9px;
+    -webkit-text-size-adjust: none;
+}
+
+.f12, .fb12 {
+    font-size: 12px;
+}
+
+.simsun {
+    font-family: SimSun;
+}
+
+.f14, .fb14 {
+    font-size: 14px;
+}
+
+.f16, .fb16 {
+    font-size: 16px;
+}
+
+.f18, .fb18 {
+    font-size: 18px;
+}
+
+.f20, .fb20 {
+    font-size: 20px;
+}
+
+.fb, .fb12, .fb14, .fb16, .fb18, .fb20 {
+    font-weight: 700;
+}
+/* 隐藏 居中 */
+
+.tc {
+    text-align: center;
+}
+
+.tr {
+    text-align: right;
+}
+
+.show {
+    display: block;
+}
+
+.hide {
+    display: none !important;
+}
+/*文字隐藏,省略号*/
+.ti, .te {
+    white-space: nowrap;
+    overflow: hidden;
+}
+
+.ti {
+    text-indent: -999em;
+}
+
+.te {
+    text-overflow: ellipsis;
+}
+
+.frame {
+    width: 90%;
+    margin: 5px auto;
+    text-align: center;
+}
+
+button {
+    margin: 20px;
+}
+.custom-btn {
+    font-family: Comic Sans MS;
+    transition: all 0.3s ease;
+    position: relative;
+    display: inline-block;
+    box-shadow:inset 2px 2px 2px 0px rgba(255, 255, 255, .5), 7px 7px 20px 0px rgba(0, 0, 0, .1), 4px 4px 5px 0px rgba(0, 0, 0, .1);
+    outline: none;
+}
+
+.btn-1 {
+    display: inline-block;
+    padding: 8px 20px;
+    margin-bottom: 0;
+    font-size: 25px;
+    font-weight: 400;
+    line-height: 1.42857143;
+    text-align: center;
+    white-space: nowrap;
+    vertical-align: middle;
+    -ms-touch-action: manipulation;
+    touch-action: manipulation;
+    cursor: pointer;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    background-image: none;
+    border: 1px solid transparent;
+    border-radius: 4px;
+}
+
+ .btn-1 {
+    border: none;
+    background: rgb(251, 33, 117);
+    background: linear-gradient(44deg, rgb(126 183 252) 0%, rgba(234, 76, 137, 1) 100%);
+    color: #7638c0;
+    overflow: hidden;
+}
+.btn-1:hover {
+    text-decoration: none;
+    color: #fff;
+}
+.btn-1:before {
+    position: absolute;
+    content:'';
+    display: inline-block;
+    top: -180px;
+    left: 0;
+    width: 30px;
+    height: 100%;
+    background-color: #fff;
+    animation: shiny-btn-11 3s ease-in-out infinite;
+}
+.btn-1:hover {
+    opacity: .7;
+}
+.btn-1:active {
+    box-shadow: 4px 4px 6px 0 rgba(255, 255, 255, .3), -4px -4px 6px 0 rgba(116, 125, 136, .2), inset -4px -4px 6px 0 rgba(255, 255, 255, .2), inset 4px 4px 6px 0 rgba(0, 0, 0, .2);
+}
+@-webkit-keyframes shiny-btn-11 {
+    0% {
+        -webkit-transform: scale(0) rotate(45deg);
+        opacity: 0;
+    }
+    80% {
+        -webkit-transform: scale(0) rotate(45deg);
+        opacity: 0.5;
+    }
+    81% {
+        -webkit-transform: scale(4) rotate(45deg);
+        opacity: 1;
+    }
+    100% {
+        -webkit-transform: scale(50) rotate(45deg);
+        opacity: 0;
+    }
+}
+
+.footer{
+    font-size: 15px;
+    text-align: center;
+    color: #2196F3;
+    text-shadow: #000 1px 1px 1px;
+}
